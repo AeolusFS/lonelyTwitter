@@ -1,7 +1,11 @@
 package ca.ualberta.cs.lonelytwitter;
 
 /**
- * Created by watts1 on 9/12/17.
+ * Created by AeolusFS on 9/12/17.
+ */
+
+/**
+ * Handle too long exception
  */
 
 public class TweetTooLongException extends Exception {
