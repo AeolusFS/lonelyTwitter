@@ -35,5 +35,19 @@ public class TweetList {
          return tweets.get(index);
     }
 
+    public boolean check_duplication (Tweet tweet){
+
+        for (Tweet new_tweet: tweets){
+            if (new_tweet.getMessage().equals(tweet.getMessage())){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public int getCount(){
+        return tweets.size();
+    }
 
 }

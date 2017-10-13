@@ -2,6 +2,8 @@ package ca.ualberta.cs.lonelytwitter;
 
 import android.test.ActivityInstrumentationTestCase2;
 
+import java.util.IllegalFormatCodePointException;
+
 /**
  * Created by zhai on 10/10/17.
  */
@@ -18,9 +20,23 @@ public class TweetListTest extends ActivityInstrumentationTestCase2{
 
         Tweet myTweet = new NormalTweet("my tweet");
 
-        tweets.addTweet(myTweet);
+        if (tweets.check_duplication(myTweet)){
 
-        assertTrue(tweets.hasTweet(myTweet));
+            try {
+                throw new IllegalArgumentException("Adding Duplicate Tweet. ");
+            }
+            catch(IllegalArgumentException e){
+                boolean ifdup = true;
+                assertTrue(ifdup);
+            }
+        }
+
+        else {
+
+            tweets.addTweet(myTweet);
+
+            assertTrue(tweets.hasTweet(myTweet));
+        }
     }
 
     public void testDeleteTweet() {
@@ -64,5 +80,19 @@ public class TweetListTest extends ActivityInstrumentationTestCase2{
 
         assertEquals(returnedTweet.getMessage(),myTweet.getMessage());
         assertEquals(returnedTweet.getDate(),myTweet.getDate());
+    }
+
+    public void testGetCount(){
+
+        TweetList tweets = new TweetList();
+
+        NormalTweet myTweet1 = new NormalTweet("11");
+        NormalTweet myTweet2 = new NormalTweet("22");
+        tweets.addTweet(myTweet1);
+        tweets.addTweet(myTweet2);
+
+        int Count = tweets.getCount();
+
+        assertEquals(Count, 2);
     }
 }
