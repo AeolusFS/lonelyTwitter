@@ -27,7 +27,17 @@ import com.google.gson.reflect.TypeToken;
 
 public class LonelyTwitterActivity extends Activity {
 
-	private static final String FILENAME = "file.sav";
+	/*
+		LAB 9 - Code Refactoring:
+
+		1. The File name "file.sav" is replace to FILE_SAV.
+		2. ImportantTweet and NormalTweet are subclass of the superclass Tweet.
+		3. isImportant is push down from Tweet.
+		4. ImportantTweet and NormalTweet are packaged.
+		5. getter and setter in Tweet are implemented.
+	*/
+	public static final String FILE_SAV = "file.sav";
+	private static final String FILENAME = FILE_SAV;
 	private EditText bodyText;
 	private ListView oldTweetsList;
 	private ArrayList<Tweet> tweetList = new ArrayList<Tweet>();

@@ -36,11 +36,7 @@ public abstract class Tweet implements Tweetable {
         this.date = date;
     }
 
-    public String getMessage() {
-        return message;
-    }
+    public String getMessage() {return this.message; };
 
-    public Date getDate() {
-        return date;
-    }
+    public Date getDate() { return this.date; };
 }
